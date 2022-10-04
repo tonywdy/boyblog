@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>silk-GUI图形界面开发一个词典 | boyblog</title><meta name="keywords" content="silk,编程,GUI"><meta name="author" content="BOY-WDY"><meta name="copyright" content="BOY-WDY"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="了解使用的库Silk内置了一些GUI类库供使用者开发MacOS上的图形界面程序，只需引用gui.si即可 准备首先要知道app需要什么功能，这里我要的是查询单词，可以听语音，还可以存储生词！ 那么就要这两个库：”gui.si”和”sqlite.si”  GUI负责界面设计，sqlite负责生词存储（当然你也可以改为CMySql，链接服务器数据库）  上代码123456789101112131415">
+<meta property="og:type" content="article">
+<meta property="og:title" content="silk-GUI图形界面开发一个词典">
+<meta property="og:url" content="http://boywdy.run.goorm.io/posts/f5dcb269/index.html">
+<meta property="og:site_name" content="boyblog">
+<meta property="og:description" content="了解使用的库Silk内置了一些GUI类库供使用者开发MacOS上的图形界面程序，只需引用gui.si即可 准备首先要知道app需要什么功能，这里我要的是查询单词，可以听语音，还可以存储生词！ 那么就要这两个库：”gui.si”和”sqlite.si”  GUI负责界面设计，sqlite负责生词存储（当然你也可以改为CMySql，链接服务器数据库）  上代码123456789101112131415">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817194638.png">
+<meta property="article:published_time" content="2022-08-17T11:35:12.000Z">
+<meta property="article:modified_time" content="2022-10-02T03:02:29.755Z">
+<meta property="article:author" content="BOY-WDY">
+<meta property="article:tag" content="silk">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="GUI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817194638.png"><link rel="shortcut icon" href="https://gimg2.baidu.com/image_search/src=https%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F12721800729%2F641&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f10000,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1667263404&t=731544e41ab0bf4f68c37a63e1e4e41b"><link rel="canonical" href="http://boywdy.run.goorm.io/posts/f5dcb269/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: BOY-WDY","link":"链接: ","source":"来源: boyblog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'silk-GUI图形界面开发一个词典',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-02 11:02:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom/fixed_comment.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/404/404.css"><link rel="stylesheet" type="text/css" href="/css/new.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Jayhrn/fontawesome-pro/css/all.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=https%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F12721800729%2F641&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f10000,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1667263404&amp;t=731544e41ab0bf4f68c37a63e1e4e41b" data-lazy-src="https://gimg2.baidu.com/image_search/src=https%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F12721800729%2F641&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f10000,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1667263404&amp;t=731544e41ab0bf4f68c37a63e1e4e41b"/></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=https%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F12721800729%2F641&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f10000,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1667263404&amp;t=731544e41ab0bf4f68c37a63e1e4e41b" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">53</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">55</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-books"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-face-smile-hearts"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-pen-to-square"></i><span> 留言</span></a></div></div></div></div><div class="post" id="body-wrap"><header id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span>WDY</span></a></span><span id="page_name"><a id="page-name-text" title="回到顶部" onclick="btf.scrollToDest(0,500)"><span>boyblog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-books"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-face-smile-hearts"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-pen-to-square"></i><span> 留言</span></a></div></div></div><div id="hotkey"><div id="search-button"><a class="site-page social-icon search" title="搜索"><i class="ri-search-eye-line"></i></a></div><div id="randompost-button"><a class="site-page" title="随机文章" href="/random/"><i class="ri-subway-fill"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="top-grrk"></div></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">silk-GUI图形界面开发一个词典</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-17T11:35:12.000Z" title="发表于 2022-08-17 19:35:12">2022-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-02T03:02:29.755Z" title="更新于 2022-10-02 11:02:29">2022-10-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/silk/">silk</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="silk-GUI图形界面开发一个词典"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/f5dcb269/"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="了解使用的库"><a href="#了解使用的库" class="headerlink" title="了解使用的库"></a>了解使用的库</h1><p>Silk内置了一些GUI类库供使用者开发MacOS上的图形界面程序，只需引用gui.si即可</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>首先要知道app需要什么功能，这里我要的是查询单词，可以听语音，还可以存储生词！</p>
+<p>那么就要这两个库：”gui.si”和”sqlite.si”</p>
+<blockquote>
+<p>GUI负责界面设计，sqlite负责生词存储（当然你也可以改为CMySql，链接服务器数据库）</p>
+</blockquote>
+<h1 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h1><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br></pre></td><td class="code"><pre><span class="line">#include "gui.si"</span><br><span class="line">#include "sqlite.si"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">_word=null;</span><br><span class="line">_textview=null;</span><br><span class="line">_checkbox=null;</span><br><span class="line"></span><br><span class="line">class CWordDB(filename)</span><br><span class="line">{</span><br><span class="line">    curdir=_fun("curdir");</span><br><span class="line">    native=CNative();</span><br><span class="line">    native.GrantPermission(curdir);</span><br><span class="line">    self.filename=curdir+filename;</span><br><span class="line">    </span><br><span class="line">	func createDB()</span><br><span class="line">	{</span><br><span class="line">		bCreated=false;</span><br><span class="line">		db=CSqlite();</span><br><span class="line">		if(db.Open(self.filename))</span><br><span class="line">		{</span><br><span class="line">			sql="select count(*) from wordlist";</span><br><span class="line">			result=db.Query(sql);</span><br><span class="line">			if(!result)</span><br><span class="line">			{</span><br><span class="line">				sql=sprintf("create table wordlist (id integer PRIMARY KEY,word TEXT,description TEXT,reserved TEXT)");</span><br><span class="line">				db.Exec(sql);</span><br><span class="line">				sql=sprintf("create INDEX index_word on wordlist (word) ");</span><br><span class="line">				db.Exec(sql);</span><br><span class="line">	 </span><br><span class="line">				bCreated=true;</span><br><span class="line">		   }</span><br><span class="line">		   db.Query_Free(result);</span><br><span class="line">		   </span><br><span class="line">		}</span><br><span class="line">		db.Close();	</span><br><span class="line">		</span><br><span class="line">		return bCreated;</span><br><span class="line">	}</span><br><span class="line">	func searchDB(word)</span><br><span class="line">	{</span><br><span class="line">		results=[];</span><br><span class="line"></span><br><span class="line">		if(self.createDB())</span><br><span class="line">		   return results;</span><br><span class="line">		</span><br><span class="line">		db=CSqlite();</span><br><span class="line">		if(db.Open(self.filename))</span><br><span class="line">		{</span><br><span class="line">		    if(word=="")</span><br><span class="line">			     sql=sprintf("select * from wordlist");</span><br><span class="line">			else</span><br><span class="line">			     sql=sprintf("select * from wordlist where word = '%s'",word);</span><br><span class="line">			result=db.Query(sql);</span><br><span class="line">			if(result)</span><br><span class="line">			{</span><br><span class="line">				count=db.RecordNum(result);</span><br><span class="line">				for(i=1;i&lt;=count;i++)</span><br><span class="line">				{</span><br><span class="line">				    item={};</span><br><span class="line">					item["word"]=db.GetByFieldName(result,i,"word");</span><br><span class="line">					item["description"]=db.GetByFieldName(result,i,"description");</span><br><span class="line">					results.append(item);</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">			db.Query_Free(result);</span><br><span class="line">	   }</span><br><span class="line">	   </span><br><span class="line">	   db.Close();</span><br><span class="line">	   return results;</span><br><span class="line">	}		</span><br><span class="line">	func insertDB(word,description)</span><br><span class="line">	{</span><br><span class="line">		self.createDB();</span><br><span class="line"></span><br><span class="line">        id=0;</span><br><span class="line">	    db=CSqlite();</span><br><span class="line">    	if(db.Open(self.filename))</span><br><span class="line">        {</span><br><span class="line">			sql=sprintf("INSERT INTO wordlist (word,description,reserved) VALUES ('%s','%s','')",word,description);</span><br><span class="line">			result=db.Exec(sql);</span><br><span class="line">			if(result)</span><br><span class="line">			{</span><br><span class="line">			    sql="select max(id) from wordlist";</span><br><span class="line">    			result=db.Query(sql);</span><br><span class="line">    			if(result)</span><br><span class="line">    			{</span><br><span class="line">				    id=_int(db.GetByFieldNo(result,1,0));</span><br><span class="line">			    }</span><br><span class="line">			    db.Query_Free(result);</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">        db.Close();	</span><br><span class="line">        </span><br><span class="line">        return id;</span><br><span class="line">	}		</span><br><span class="line">	func deleteDB(word)</span><br><span class="line">	{</span><br><span class="line">		self.createDB();</span><br><span class="line"></span><br><span class="line">	    result=null;</span><br><span class="line">		db=CSqlite();</span><br><span class="line">    	if(db.Open(self.filename))</span><br><span class="line">        {</span><br><span class="line">    		sql=sprintf("delete from wordlist where word='%s' ",word);</span><br><span class="line">    		result=db.Exec(sql);</span><br><span class="line">            db.Close();</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        return result;</span><br><span class="line">	</span><br><span class="line">	}		</span><br><span class="line">	func updateDB(word,description)</span><br><span class="line">	{</span><br><span class="line">		self.createDB();</span><br><span class="line"></span><br><span class="line">	    result=null;</span><br><span class="line">		db=CSqlite();</span><br><span class="line">    	if(db.Open(self.filename))</span><br><span class="line">        {</span><br><span class="line">    		sql=sprintf("select * from wordlist where word='%s' ",word);</span><br><span class="line">    		res=db.Query(sql);</span><br><span class="line">            if(res)</span><br><span class="line">            {</span><br><span class="line">				count=db.RecordNum(res);</span><br><span class="line">				if(count&gt;0)</span><br><span class="line">				{</span><br><span class="line">        			sql=sprintf("Update wordlist set description='%s' where word='%s'",description,word);</span><br><span class="line">                    result=db.Exec(sql);</span><br><span class="line">                }</span><br><span class="line">    		}</span><br><span class="line">    		db.Query_Free(res);</span><br><span class="line">            db.Close();	</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        return result;</span><br><span class="line">	</span><br><span class="line">	}		</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func get_ok(response)</span><br><span class="line">{</span><br><span class="line">    error=response.find("error");</span><br><span class="line">    if(error)</span><br><span class="line">    {</span><br><span class="line">        print(error);</span><br><span class="line">        return;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    html=response["body"];</span><br><span class="line">    tag1="&lt;meta name=\"description\" content=\"";</span><br><span class="line">    tag2="\" /&gt;";</span><br><span class="line">	pos1=html.find(tag1);</span><br><span class="line">	if(pos1&gt;=0)</span><br><span class="line">	{</span><br><span class="line">	   pos1+=_len(tag1);</span><br><span class="line">	   pos2=html.find(tag2,pos1);</span><br><span class="line">	   description=html.substr(pos1,pos2-pos1);</span><br><span class="line">	   prefix=sprintf("必应词典为您提供%s的释义，",_word);</span><br><span class="line">	   description=description.replace(prefix,"");</span><br><span class="line">	   _textview.SetText(description);</span><br><span class="line">	   </span><br><span class="line">	   is_check=_checkbox.GetStatus();</span><br><span class="line">	   if(is_check &amp;&amp; _word)</span><br><span class="line">	   {</span><br><span class="line">        	word=_fun("url_escape",_word);</span><br><span class="line">        	description=_fun("url_escape",description);</span><br><span class="line">            db=CWordDB("wordlist.db");</span><br><span class="line">            id=db.insertDB(word,description);</span><br><span class="line">            if(id&gt;0)</span><br><span class="line">                print(_word,"自动加入成功");</span><br><span class="line">	   }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func search_word(word)</span><br><span class="line">{</span><br><span class="line">    global _word;</span><br><span class="line">    _word=word;</span><br><span class="line">    </span><br><span class="line">    header = {"content-type":"application/x-www-form-urlencoded",</span><br><span class="line">             "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36",</span><br><span class="line">             "Connection":"keep-alive",</span><br><span class="line">             "Cache-Control":"max-age=0",</span><br><span class="line">             "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",</span><br><span class="line">             "Accept-Encoding":"gzip, deflate",</span><br><span class="line">             "Accept-Language":"zh-CN,zh;q=0.9",</span><br><span class="line">             "Upgrade-Insecure-Requests":"1"</span><br><span class="line">             };</span><br><span class="line">    url=sprintf("http://cn.bing.com/dict/search?q=%s",word);</span><br><span class="line">		         </span><br><span class="line">    request=CHttpRequest();</span><br><span class="line">    request.HttpGet(url,get_ok,null,header);</span><br><span class="line">    _textview.SetText("正在查询...");</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func download_ok(response)</span><br><span class="line">{</span><br><span class="line">    error=response.find("error");</span><br><span class="line">    if(error)</span><br><span class="line">    {</span><br><span class="line">        print(error);</span><br><span class="line">        return;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    filePath=response["file_path"];</span><br><span class="line">    audio=CAudioPlay();</span><br><span class="line">    audio.PlayFile(filePath);</span><br><span class="line">}</span><br><span class="line">func get_voice(word)</span><br><span class="line">{</span><br><span class="line">    header = {"content-type":"application/x-www-form-urlencoded",</span><br><span class="line">             "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36",</span><br><span class="line">             "Connection":"keep-alive",</span><br><span class="line">             "Cache-Control":"max-age=0",</span><br><span class="line">             "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",</span><br><span class="line">             "Accept-Encoding":"gzip, deflate",</span><br><span class="line">             "Accept-Language":"zh-CN,zh;q=0.9",</span><br><span class="line">             "Upgrade-Insecure-Requests":"1"</span><br><span class="line">             };</span><br><span class="line">    url=sprintf("https://api.vvhan.com/api/song?txt=%s",word);</span><br><span class="line">		         </span><br><span class="line">    request=CHttpRequest();</span><br><span class="line">    save_path=_fun("curdir")+"temp.wav";</span><br><span class="line">    request.HttpGet(url,download_ok,save_path,header);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func search_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    text1=param["text1"];</span><br><span class="line">    word=text1.GetText();</span><br><span class="line">    </span><br><span class="line">    search_word(word);</span><br><span class="line">}</span><br><span class="line">func voice_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    text1=param["text1"];</span><br><span class="line">    word=text1.GetText();</span><br><span class="line">    </span><br><span class="line">    get_voice(word);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func save_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    text1=param["text1"];</span><br><span class="line">    word=text1.GetText();</span><br><span class="line">    text2=param["text2"];</span><br><span class="line">    description=text2.GetText();</span><br><span class="line">	word=_fun("url_escape",word);</span><br><span class="line">	description=_fun("url_escape",description);</span><br><span class="line"></span><br><span class="line">    db=CWordDB("wordlist.db");</span><br><span class="line">    result=db.updateDB(word,description);</span><br><span class="line">    if(result)</span><br><span class="line">    {</span><br><span class="line">        table=param["table"];</span><br><span class="line">        row=table.GetCurSel();</span><br><span class="line">        data=table.GetData(row);</span><br><span class="line">        data["description"]=text2.GetText();</span><br><span class="line">        table.Refresh();</span><br><span class="line"></span><br><span class="line">		msgbox=CMessageBox();</span><br><span class="line">        msgbox.ShowMessage("提示","保存成功！");</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">func add_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    text1=param["text1"];</span><br><span class="line">    word=text1.GetText();</span><br><span class="line">    description=_textview.GetText();</span><br><span class="line">    if(word)</span><br><span class="line">    {</span><br><span class="line">    	word=_fun("url_escape",word);</span><br><span class="line">    	description=_fun("url_escape",description);</span><br><span class="line">        db=CWordDB("wordlist.db");</span><br><span class="line">        if(db.searchDB(word))</span><br><span class="line">        {</span><br><span class="line">    		msgbox=CMessageBox();</span><br><span class="line">            msgbox.ShowMessage("提示","该单词已经存在！");</span><br><span class="line">            return;</span><br><span class="line">        }</span><br><span class="line">        id=db.insertDB(word,description);</span><br><span class="line">        if(id&gt;0)</span><br><span class="line">        {</span><br><span class="line">    		msgbox=CMessageBox();</span><br><span class="line">            msgbox.ShowMessage("提示","加入成功！");</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">func edit_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    if(!param)</span><br><span class="line">       return;</span><br><span class="line">    </span><br><span class="line">    table=param["table"];</span><br><span class="line">    row=table.GetCurSel();</span><br><span class="line">    if(row&lt;0)</span><br><span class="line">    {</span><br><span class="line">		msgbox=CMessageBox();</span><br><span class="line">        msgbox.ShowMessage("提示","请选择需要编辑的单词。");</span><br><span class="line">        return;</span><br><span class="line">    }</span><br><span class="line">    data=table.GetData(row);</span><br><span class="line">    </span><br><span class="line">	win=CWindow();</span><br><span class="line">	w=300;</span><br><span class="line">	h=300;</span><br><span class="line">	win.CreateWindow("编辑单词",w,h);</span><br><span class="line">    label=win.AddLabel("单词：");</span><br><span class="line">    text1=win.AddTextField(data["word"]);</span><br><span class="line">    text1.SetEditable(false);</span><br><span class="line">    rect=text1.GetRect();</span><br><span class="line">    rect.h=20;</span><br><span class="line">    rect.y=rect.y-rect.h-5;</span><br><span class="line">    win.AddLabel("解释:",rect);</span><br><span class="line">    text2=win.AddTextView(data["description"]);</span><br><span class="line">   </span><br><span class="line">    rect=text2.GetRect();</span><br><span class="line">    rect.h=25;</span><br><span class="line">    rect.y=rect.y-rect.h-10;</span><br><span class="line">    param2={"text1":text1, "text2":text2, "table":table};</span><br><span class="line">    button=win.AddButton("保存",rect,save_click,param2);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line"></span><br><span class="line">    win.MainLoop();</span><br><span class="line">}</span><br><span class="line">func delete_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    if(!param)</span><br><span class="line">       return;</span><br><span class="line">	msgbox=CMessageBox();</span><br><span class="line">    ret=msgbox.ShowMessage("提示","你真的想删除这个单词吗？","Yes","No");</span><br><span class="line">    if(!ret)</span><br><span class="line">        return;</span><br><span class="line"></span><br><span class="line">    table=param["table"];</span><br><span class="line">    row=table.GetCurSel();</span><br><span class="line">    data=table.GetData(row);</span><br><span class="line">    word=_fun("url_escape",data["word"]);</span><br><span class="line"></span><br><span class="line">    db=CWordDB("wordlist.db");</span><br><span class="line">    result=db.deleteDB(word);</span><br><span class="line">    if(result)</span><br><span class="line">    {</span><br><span class="line">        table.Delete(row);</span><br><span class="line">    	table.Refresh();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func tableViewSelectionChanged(handle,parent,index,data,param)</span><br><span class="line">{</span><br><span class="line">}</span><br><span class="line">func tableViewDoubleClicked(handle,parent,index,data,param)</span><br><span class="line">{</span><br><span class="line">   table=CTableView(handle,parent);</span><br><span class="line">   param["table"]=table;</span><br><span class="line">   edit_click(null,param);</span><br><span class="line">}</span><br><span class="line">func wordlist_click(handle,param)</span><br><span class="line">{</span><br><span class="line">    if(!param)</span><br><span class="line">       return;</span><br><span class="line"></span><br><span class="line">	win=CWindow();</span><br><span class="line">	w=400;</span><br><span class="line">	h=400;</span><br><span class="line">	win.CreateWindow("我的生词库",w,h);</span><br><span class="line">   </span><br><span class="line">    db=CWordDB("wordlist.db");</span><br><span class="line">    res=db.searchDB("");</span><br><span class="line">    </span><br><span class="line">    rect=CRect(10,10,w-20,h-40-20);</span><br><span class="line">	param={"win":win};</span><br><span class="line">    table=win.AddTableView(rect,tableViewSelectionChanged,tableViewDoubleClicked,param);</span><br><span class="line">	table.AddColumn("单词","word");</span><br><span class="line">	table.AddColumn("解释","description",400);</span><br><span class="line">	for(i=0;i&lt;res.size();i++)</span><br><span class="line">	{</span><br><span class="line">	    item={};</span><br><span class="line">    	item["word"]=_fun("url_unescape",res[i]["word"]);</span><br><span class="line">    	item["description"]=_fun("url_unescape",res[i]["description"]);</span><br><span class="line">	</span><br><span class="line">    	table.AddData(item);</span><br><span class="line">	}</span><br><span class="line">	table.Refresh();</span><br><span class="line"></span><br><span class="line">	param={"win":win,"table":table};</span><br><span class="line">    w2=100;</span><br><span class="line">	h2=25;</span><br><span class="line">	rect=CRect(10,h-40,w2,h2);</span><br><span class="line">    button=win.AddButton("编辑",rect,edit_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">	rect=CRect(10+w2+5,h-40,w2,h2);</span><br><span class="line">    button=win.AddButton("删除",rect,delete_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line"></span><br><span class="line">    win.MainLoop();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func about(handle,param)</span><br><span class="line">{</span><br><span class="line">    box=CMessageBox();</span><br><span class="line">    box.ShowMessage("感谢","感谢bing、韩小韩api的支持！🙏");</span><br><span class="line">    box.ShowMessage("作者","作者：吴定一");</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func dict_window()</span><br><span class="line">{</span><br><span class="line">    global _textview, _checkbox;</span><br><span class="line">	</span><br><span class="line">	win=CWindow();</span><br><span class="line">	w=450;</span><br><span class="line">	h=420;</span><br><span class="line">	win.CreateWindow("jwy-dictionary",w,h);</span><br><span class="line">	win.LiveOutput(true);</span><br><span class="line"></span><br><span class="line">    label=win.AddLabel("输入要查询的单词：");</span><br><span class="line">    rect=label.GetRect();</span><br><span class="line">    rect.x=10;</span><br><span class="line">    label.SetRect(rect);</span><br><span class="line">    rect2=CRect(rect.x,rect.y-30,300,25);</span><br><span class="line">    text1=win.AddTextField("",rect2);</span><br><span class="line">    rect=text1.GetRect();</span><br><span class="line">    rect.h=20;</span><br><span class="line">    rect.y=rect.y-rect.h-5;</span><br><span class="line">    label2=win.AddLabel("解释:",rect);</span><br><span class="line">    rect2=CRect(rect.x,rect.y-250,300,250);</span><br><span class="line">    _textview=win.AddTextView("",rect2);</span><br><span class="line">   </span><br><span class="line">    param={"text1":text1};</span><br><span class="line">    rect=text1.GetRect();</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,rect.y,100,rect.h);</span><br><span class="line">    button=win.AddButton("查询",rect2,search_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">    </span><br><span class="line">    y=label2.GetRect().y;</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,y-rect.h,100,rect.h);</span><br><span class="line">    button=win.AddButton("读音",rect2,voice_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,y-(rect.h+15)*2,100,rect.h);</span><br><span class="line">    button=win.AddButton("加入生词库",rect2,add_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,y-(rect.h+15)*3,100,rect.h);</span><br><span class="line">    button=win.AddButton("我的生词库",rect2,wordlist_click,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,y-(rect.h+15)*4,120,rect.h);</span><br><span class="line">    _checkbox=win.AddButton("自动加入生词库",rect2);</span><br><span class="line">    _checkbox.SetCheckBox(true,1);</span><br><span class="line">    rect2=CRect(rect.x+rect.w+5,y-(rect.h+15)*5,100,rect.h);</span><br><span class="line">    button=win.AddButton("关于",rect2,about,param);</span><br><span class="line">    button.RoundedStyle(true);</span><br><span class="line">    </span><br><span class="line">    rect=_textview.GetRect();</span><br><span class="line">    rect2=CRect(rect.x,rect.y-45,250,40);</span><br><span class="line">    rect2.y=rect2.y-25;</span><br><span class="line">    rect2.h=25;</span><br><span class="line">    rect2.w=400;</span><br><span class="line">    link=win.AddTextField("app基于silk开发，更多信息点击关于查看",rect2);</span><br><span class="line">    </span><br><span class="line">    win.MainLoop();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line">{</span><br><span class="line">    dict_window();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>ok，接下来看看效果：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817195202.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817195218.png"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817195240.png"></p>
+<h1 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h1><p>这里用了一个bing词典以及韩小韩的文字转语音的api，这个api有个bug，不能➕空格，我还在研究这个语言的转译，等我回了再补充，如果你会可以发个评论告诉我！</p>
+<blockquote>
+<p>其实你只要看个官方文档就大差不差了:<a target="_blank" rel="noopener" href="https://silklang.org/chinese/tutorial_db.html">https://silklang.org/chinese/tutorial_db.html</a></p>
+</blockquote>
+<hr>
+<h1 id="相关信息"><a href="#相关信息" class="headerlink" title="相关信息"></a>相关信息</h1><blockquote>
+<p>源码有需要的可以下载:<a target="_blank" rel="noopener" href="https://wudingyi1020.lanzouv.com/i9ImM09pz5af,%E5%AF%B9%E4%BA%86windows%E5%92%8Clinux%E4%B8%8D%E4%BF%9D%E8%AF%81%E4%BD%A0%E7%9A%84%E5%BA%93%E6%98%AF%E8%87%AA%E5%B8%A6%E7%9A%84%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%8C%89%E7%85%A7%E6%96%87%E6%A1%A3%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%A6%E5%88%99%E5%8F%AF%E8%83%BD%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%EF%BC%81">https://wudingyi1020.lanzouv.com/i9ImM09pz5af,对了windows和linux不保证你的库是自带的，没有请按照文档进行配置，否则可能无法使用！</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>下载相关问题公告蓝奏云如果遇到链接无法访问，可以把链接中的<a target="_blank" rel="noopener" href="https://pan.lanzou替换成https//pan.lanzoux%EF%BC%8C%E7%BB%99%E6%82%A8%E9%80%A0%E6%88%90%E7%9A%84%E4%B8%8D%E4%BE%BF%E6%B7%B1%E6%84%9F%E6%AD%89%E6%84%8F%E3%80%82">https://pan.lanzou替换成https://pan.lanzoux，给您造成的不便深感歉意。</a> </p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>silk-GUI图形界面开发一个词典</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://boywdy.run.goorm.io/posts/f5dcb269/">http://boywdy.run.goorm.io/posts/f5dcb269/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a" style="display: inline-block;width: 120px"><h>作者</h><div class="post-copyright-cc-info"><h>BOY-WDY</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>发布于</h><div class="post-copyright-cc-info"><h>2022-08-17</h></div></div><div class="post-copyright-u" style="display: inline-block;width: 120px"><h>更新于</h><div class="post-copyright-cc-info"><h>2022-10-02</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY 4.0" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a></div></div></div></div></div><div class="business-center"><div class="business-card"><div class="business-flip"><div class="business-front"><div class="business-strip-bottom"></div><div class="business-strip-top"></div><img class="business-logo" width="80" height="80" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://assets.akilar.top/image/cardcode.png" alt="cardcode"><div class="business-Invitation">Invitation</div><div class="business-chip"><div class="business-chip-line"></div><div class="business-chip-line"></div><div class="business-chip-line"></div><div class="business-chip-line"></div><div class="business-chip-main"></div></div><svg class="business-wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white"><path d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z"></path><path d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z"></path><path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path></svg><div class="business-card-number"><div class="business-section">Akilar</div><div class="business-section">674527148</div></div><div class="business-end"><span class="business-end-text">created:</span><span class="business-end-date">03/09/2020</span></div><div class="business-card-holder">Welcome to Candyhome</div><div class="business-master"><div class="business-circle business-master-red"></div><div class="business-circle business-master-yellow">   </div></div></div><div class="business-back"><div class="business-strip-black"></div><div class="business-ccv"><label>sitelink</label><div><a target="_blank" rel="noopener" href="https://akilar.top">https://akilar.top</a></div></div><div class="business-terms"><p>Use this card to join the candyhome and participate in a pleasant discussion together .</p><p>Welcome to Akilar's candyhome,wish you a nice day .</p></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/silk/">silk</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a><a class="post-meta__tags" href="/tags/GUI/">GUI</a></div><div class="post_share"><div class="social-share" data-image="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817194638.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">不给糖果就捣蛋</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://i.postimg.cc/qvQB35tz/2022-10-02-08-39-45.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.postimg.cc/qvQB35tz/2022-10-02-08-39-45.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></button></div><audio id="coinAudio" src="https://cdn.cbd.int/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/b727ceb/" title="记一次twikoo引发的本站重大事故"><i class="fas fa-chevron-left prev-icon"><div class="prev-label">上一篇</div></i></a><div class="pagination-card"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tse3-mm.cn.bing.net/th/id/OIP-C.7M1MAtsqfEXkRNezwKm7pwHaCF?pid=ImgDet&amp;rs=1" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">记一次twikoo引发的本站重大事故</div></div></div></div><div class="next-post pull-right"><a href="/posts/d510a0ab/" title="Silk语言-中国人自己的开源编程语言"><i class="fas fa-chevron-right next-icon"><div class="next-label">下一篇</div></i></a><div class="pagination-card"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817200644.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Silk语言-中国人自己的开源编程语言</div></div></div></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/d510a0ab/" title="Silk语言-中国人自己的开源编程语言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817200644.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-17</div><div class="title">Silk语言-中国人自己的开源编程语言</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=https%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F12721800729%2F641&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f10000,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1667263404&amp;t=731544e41ab0bf4f68c37a63e1e4e41b" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">BOY-WDY</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">53</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">55</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/tonywdy" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/wudingyi1020@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%BD%BF%E7%94%A8%E7%9A%84%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">了解使用的库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">上代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">解释：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-number">5.</span> <span class="toc-text">相关信息</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/7808f944/" title="html table 美化-html如何用css美化表格"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tse4-mm.cn.bing.net/th/id/OIP-C.iQZxwhTbOkqgyMuHE8XDVgHaDl?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="html table 美化-html如何用css美化表格"/></a><div class="content"><a class="title" href="/posts/7808f944/" title="html table 美化-html如何用css美化表格">html table 美化-html如何用css美化表格</a><time datetime="2022-08-20T04:59:00.000Z" title="发表于 2022-08-20 12:59:00">2022-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6225bced/" title="【HTML】三种方法使HTML单页面输入密码才能访问"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://ts1.cn.mm.bing.net/th/id/R-C.04f58009825cb78d775da2c084a1beb9?rik=FAWvL2wHRp9Gkw&amp;riu=http%3a%2f%2fimg0.pconline.com.cn%2fpconline%2fpdbk%2fitbk%2fbkxt%2f1608%2f20160816.jpg&amp;ehk=W3tTCr1Fisy7huDnnRJjneKcPR%2fYzlC2bfGm2LfQYKY%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【HTML】三种方法使HTML单页面输入密码才能访问"/></a><div class="content"><a class="title" href="/posts/6225bced/" title="【HTML】三种方法使HTML单页面输入密码才能访问">【HTML】三种方法使HTML单页面输入密码才能访问</a><time datetime="2022-08-20T04:29:00.000Z" title="发表于 2022-08-20 12:29:00">2022-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/47d752d4/" title="SwiftUI实战教程-土豆List"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tse4-mm.cn.bing.net/th/id/OIP-C.1GN3M7XwahJad-L0vb5_0QHaDu?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SwiftUI实战教程-土豆List"/></a><div class="content"><a class="title" href="/posts/47d752d4/" title="SwiftUI实战教程-土豆List">SwiftUI实战教程-土豆List</a><time datetime="2022-08-19T07:43:12.000Z" title="发表于 2022-08-19 15:43:12">2022-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b727ceb/" title="记一次twikoo引发的本站重大事故"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tse3-mm.cn.bing.net/th/id/OIP-C.7M1MAtsqfEXkRNezwKm7pwHaCF?pid=ImgDet&amp;rs=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记一次twikoo引发的本站重大事故"/></a><div class="content"><a class="title" href="/posts/b727ceb/" title="记一次twikoo引发的本站重大事故">记一次twikoo引发的本站重大事故</a><time datetime="2022-08-17T23:46:03.000Z" title="发表于 2022-08-18 07:46:03">2022-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f5dcb269/" title="silk-GUI图形界面开发一个词典"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20220817194638.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="silk-GUI图形界面开发一个词典"/></a><div class="content"><a class="title" href="/posts/f5dcb269/" title="silk-GUI图形界面开发一个词典">silk-GUI图形界面开发一个词典</a><time datetime="2022-08-17T11:35:12.000Z" title="发表于 2022-08-17 19:35:12">2022-08-17</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202106%2F07%2F20210607215629_c2e35.thumb.1000_0.jpeg&amp;refer=http%3A%2F%2Fc-ssl.duitang.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1667264659&amp;t=5b84459b6227bda05953e50b9c7bac92')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By BOY-WDY</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">| 主题 btPLUS</span></div><div class="wordcount"></div><span>BOY居然写了 69k 字</span></br><span>好像写完一本 埃克苏佩里 的 《小王子》 了啊</span></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><button type="button" title="切换背景" onclick="toggleWinbox()"><i class="fas fa-display"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"><span id="percent">0<span>%</span></span></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://fwgxoi.deta.dev',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const loadWaline = () => {
+      Waline.RecentComments({
+        serverURL: 'https://fwgxoi.deta.dev',
+        count: 6
+      }).then(({comments}) => {
+        const walineArray = comments.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.insertedAt,
+          }
+        })
+        saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+        generateHtml(walineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+    }
+
+    if (typeof Waline === 'function') loadWaline() 
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(loadWaline)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/smooth-scrolling.js"></script><script defer src="/live2d-widget/autoload.js"></script><script src="/js/fixed-pagination.js" async></script><script src="https://cdn.jsdelivr.net/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script src="/js/new.js"></script><script src="/js/day.js"></script><div class="aplayer no-destroy" data-id="7515260242" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script data-pjax defer src="/js/custom/fixed_comment.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.nesxc.com/js/smooth-scrolling.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="//code.tidio.co/ui0nzweibci2p2yysjqeuk9mwh03zpq4.js" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax], .pjax-reload script').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div class="pjax-reload"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer="defer" src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer="defer" src="/js/wow_init.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.6534116,27.96920845';
+  var clock_default_rectangle_enable = 'true';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在湘进行备案" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/湘ICP备-2022004213号-e1d492?style=flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAdCAYAAAC9pNwMAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+nhxg7wAACNlJREFUSInF1mmMVeUdx/Hv2e+5+519mJWBYQZkGxZZxLKJqBXGoLS1iXWrmihotFXaJiTWWlsbl6q1aetWd5u0VkKjNG4YEJSlOCibDLMwM8x679z9nnPP1jcVJUxf+7z6J8+LT37/Z4VvaQhfFS8+sBXbctCDGrVTKlBUH4mxAbI9Hfj0IJLsp6paJ5/tmn20N/D0wKDRMq9F/c3M2U1/V0vDfWMFh+tv/Ig1zYPMabDImPJ52OaXO87W580KggCiiOsJOJ6I3wcNFaaeNKxrt72f2fLGu4FpJ/sDQABRzD22fH7/Yze069vGc6mrDLNIJCDik10sxz2by3VdPM87xzkP9jwPTZFRVI1YUJKH+oy7n3tbvv/P2wW/UQxRWe6w4ZJRptYLHDoCuz8v5cP92XbI762O+h6UVWHnUFbPpU0fEb2A60mMJ7MUi9b/b7UgKhiZMaIxm8YLplLMDPz8hl/EH+rs8TNlUpFf32uyZJGLPDwCiTGUyTWodTN49eUCdz2YwXb9NNcObp1X98WDoufynzMVCEKGn27ayPTWBi5ad8P5iQUkJEnFLjqM9Z+hrVX0vfDe6K2dPRWsW2bwyp9EUifSJB84gdxrkR0eRgv1o/3I4fbbprJ6scqamzVO9pffec1S5ZWY2Nfz5qEy/FqOC2Y3s3j53HMSi18VRjFPwSwg+1RfVbl115vvJrsfej7UGIsYPPGgQ7JXoO+Xx5B3dHEomyJ9x1qiQozkr95h5937aFnVyouPlgJK+Ss7Fxz64OTSxSX+LHYxT2IsRW5kbGI4oHcR0jqoqTjV9se3I7/f8rS/ClS23GxSXhph6L5d9Akm7qqZhHWBQGUJ+CWGFzcg7e7m6D3/ZuW1Ea5YKdA3EojuONi813TqNi+YPYOKUhXDtCeGL26/hakLLiEcdsaHRkRAoLRc4fJrmhnekyF0apgZowWSwwkaa+rw3f8WA1GZZsPP5JEChX8dhZTN6iU6kAcs5s+dHd183SJ0VVKL57pfw6YdRQw23aeWTns47DPTALWlRTR7kMLew6hGgYqUhWXYFFUdPZ6lUBahLA8hVcOftckfi7No7VRAAQqsX1dybfvG1qwriM9mM5mJ4e4jO5Cc01dPqixbr8tWGBQUL4vjGigEEShi+xUmZ2RiR/sJ1pbS8NkgZrKAGw0TsgQsQyFaF/nfYTGprAlMFysbA1pI3mhkR6snhGsaymYGvPyFEb9IdbUE2AzFFTwpRqCtBY0wmdER+hZW4j63gcJj38V+/ErSUZXsYBfjIZHIRW0c2Z8BskCAqN+CbBJBFnyyKjR+Ez57nBxLqpfMUeSISElMBFz6x2Q6OxzWrYjyxWVzEewioU3LCS5vQY6nMUrLwNaxXvoQ59IloFSx54PPAZtQLExVZZDxsVE8J4dn6v4JYatgbSjk0owPw7RGH2ADMo88Z7L20ip8f7gC7fAo0q4+0rt7kEQDvaghVZbiPHUHcyeXcfLjT3jmpR7AYsnSScya3UR8bARVMck7Y/cB75/X6rDf3Fg2dw2jKZm5dXGm1LuAzO5DCo9v6aT0ibco5kzOvLOP+NGTFJtDpPYeZKijk/Rn3QxsfZV7txwhX7ABiZUXBsGvIvguQApNQQva9RMmTvZ2dpVUls+tX/UD7GN/Y8Ws05w6rQF+9vyzg1vZjbvMRJhXiRSU8DpTFFe0QE8S6SfPkOkZoktrB2oAhZWrwljxOPmchiSMYOWNoxNuruFU5vWeXdsojiUon345113dBBQBmTYlTimgdB8nfPo4WjaNFgN9OMEkJ02dnadVt5ki54Esqy+bzKJltVhSPbI3iN2zCyMTeXNCuG7Omm2Zok7PR2+R7jvD8ouruHhmCrB5jVZeYxLdrTP4sr4Vtd9g4MA4qc4c+6cu5NPamfw4P59t2WrA4YdXKkASf7SFivo6PDdEPmf1fRM++zp1bH/0r4I1dD1ODtOWaW4IsvPjL7nqXhloQiSPwjjgMYkMASyGEBkjhISCQwkwzve/18AbT+pk8pVY4UacQi9y+gyZ0eRAw4qHa89LXEx1LXMSPfhDJYRb59BtlLKg2WPT2l6qYl1svtGkrLYckyA1S+t5+2ATm37WCui0LSynsckDNH5zTxAchbQtkx08hDHYiW6NgC0enHBzEZ102UDH8QORdEckjEzZrNWkRydzyx17uGnDXqbUnGZ6dRPjSY91q2TqwjFuvTxLo5Zn5Qo/pumRSFcTLQtybEhGE0fQrDhhJ0VvH2lTnnHPhGtsmWan469apERjI2MH3qN7+7MEfH6ql29CbV7PvsMG32k6yU2XDhEKyZw66eJaRdrXR7CzCcqUNC3zwgymPJRCH4KRRLINimpL14A5Y4GDeOqbsPRVcfuN7Xj44pav/hFfrNT2kr2rsqf2Ibp5pEA14ZIImUyW3t5REkkTXRGQ/DGGhtLginhqCWknQDE5hKf5UFSF9Lj020Q2ul5V1AR2hr+8vuP8Vlc2zMPRxoSjnx7XBC14sDoydahSGq7KdO/HFyrBchxCVfX4fDKp4T7SCQejYODZLrYgIqgKFsNIgQqEYob8mW6yiUyb7Z64LVK/+B85xznnJ3AWzqTzuIX46mr5wLs+UUTyIriBCjRNxguHMJIFDLEEvXEOVRWnSJ0+jCd4CJoGjoedM1CLcXQziW3nMV2TSMBeOx7vWZvPt1r+cMPzE8KunaUkFn0vNrvtqXj34c1W6gzxlEQ6naIoBahtnkMwoFMwIVzSRNguMt53Aj2s4nkSlgPoGqLkICsRNF0gl8rYWuP8+11/w/OOJDEhHPKLCIpOXmi+M9AgP+maiesLifF2T1Rn5ZNj5Lo/Qc/GcPMmhdoqlEgIGzCK4PiCmJKK68p4KfF3qYGuF0qCRUkJTzleUbvQyWRTuE5xYthxQbBs7EISAbkzUFG3VfXXbK2YFi3X/eryfKKnqVBItNjJxDzH8erddC4SqWwcN5WyTtlyO1RP/Lh3eHD76MB40swmiDVJyDLYRhpc5+ub6tse/wWKbvSQEAw1awAAAABJRU5ErkJggg==" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
