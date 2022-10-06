@@ -169,10 +169,6 @@ a {
   background-color: transparent;
 }
 
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline dotted;
-}
 
 b, strong {
   font-weight: bolder;
@@ -8241,95 +8237,13 @@ a.categoryButton:hover {
   font-weight: 700;
 }
 
-#bber-talk {
-  width: 100%;
-  height: 25px;
-  line-height: 25px;
-  display: flex;
-  flex-direction: column;
-}
 
-#bbtalk {
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#bber-talk .li-style {
-  width: auto;
-  max-width: 100%;
-  height: 25px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.3s ease 0s;
-  font-weight: 700;
-  margin: auto;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-#bbTimeList .li-style:hover {
-  color: var(--heo-theme);
-  transition: all 0.3s ease 0s;
-}
 
 li, ul {
   list-style: none;
   display: block;
   margin: 0px;
   padding: 0px;
-}
-
-#bbTimeList {
-  background: var(--heo-none);
-  color: var(--heo-fontcolor);
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  box-shadow: var(--heo-shadow-lightblack);
-  display: flex;
-  transition: all 0.3s ease 0s;
-  margin-bottom: 1rem;
-  border: var(--style-border);
-  align-items: center;
-  height: 50px;
-}
-
-#bbTimeList:hover {
-  border: var(--style-border-hover);
-  box-shadow: var(--heo-shadow-main);
-}
-
-@media screen and (min-width: 1300px) {
-  #bbTimeList {
-      margin-bottom: 1rem;
-  }
-}
-
-.bber-gotobb {
-  line-height: 25px;
-  margin-left: 1rem;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-}
-
-.bber-gotobb:hover {
-  opacity: 0.8;
-  color: var(--heo-theme);
-}
-
-.icon-bblogo {
-  font-size: 2rem;
-  line-height: 22px;
-  margin-right: 1rem;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-}
-
-.icon-bblogo:hover {
-  opacity: 0.8;
-  color: var(--heo-theme);
 }
 
 #recent-posts > .recent-post-item > .recent-post-info {
@@ -8801,45 +8715,7 @@ span.recent-post-top-text {
   }
 }
 
-@media screen and (max-width: 768px) {
-  #recent-posts > .recent-post-item {
-      border-radius: 0px;
-  }
 
-  #recent-posts > .recent-post-item:not(:first-child) {
-      margin: 0.5rem 1rem 1.5rem;
-      border-radius: 12px;
-      border: var(--style-border-always);
-      box-shadow: var(--heo-shadow-border);
-      display: block;
-      position: relative;
-      clip-path: inset(0px round 12px);
-  }
-
-  #recent-posts .recent-post-item .post_cover {
-      width: 100%;
-      border-radius: 0px !important;
-  }
-
-  #bbTimeList {
-      margin-top: 0px;
-      border-radius: 0px;
-      background: var(--heo-background);
-      padding: 0.5rem 20px;
-  }
-
-  a.article-meta__categories {
-      font-size: 12px;
-      left: 12px !important;
-      top: 12px !important;
-      border-radius: 4px !important;
-      padding: 2px 9px !important;
-  }
-
-  #bbTimeList {
-      margin-bottom: 0px;
-  }
-}
 
 @media screen and (min-width: 1300px) {
   .topGroup .recent-post-item:nth-child(7) {
@@ -9323,10 +9199,6 @@ div#author-info__sayhi {
   padding: 0px !important;
 }
 
-#aside-content > div.card-widget.card-info > div.card-content {
-  padding: 1rem 1.2rem;
-  min-height: 330px;
-}
 
 #aside-content > div.card-widget.card-info > div.card-info-avatarimg {
   overflow: hidden;
@@ -9408,10 +9280,6 @@ div#author-info__sayhi {
 #aside-content .card-info .card-info-data > .card-info-data-item:hover {
   background: var(--heo-post-blockquote-bg);
   transform: scale(0.97);
-}
-
-#aside-content > div.card-widget.card-info > div.card-content > div.card-info-data > .card-info-data-item:hover > a > div.headline, #aside-content > div.card-widget.card-info > div.card-content > div.card-info-data > .card-info-data-item:hover > a > div.length-num {
-  color: var(--heo-blue);
 }
 
 .announcement_content p {
@@ -13087,298 +12955,13 @@ figure.gallery-group:hover .gallery-group-name::after {
   display: none;
 }
 
-#bber .timeline #waterfall {
-  opacity: 0;
-  transition: all 0.3s ease 0s;
-}
-
-#bber .timeline #waterfall.show {
-  opacity: 1;
-}
-
-#bber .timeline ul li.item {
-  position: relative;
-  width: 32%;
-  border: var(--style-border-always);
-  border-radius: 12px;
-  padding: 1rem 1rem 0.5rem;
-  transition: all 0.3s ease 0s;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: var(--heo-card-bg);
-  box-shadow: var(--heo-shadow-border);
-  margin-right: 2%;
-}
-
-#bber .timeline ul li.item hr {
-  display: flex;
-  position: relative;
-  margin: 8px 0px;
-  border: 1px dashed var(--heo-theme-op);
-  width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-  #bber .timeline ul li.item {
-      padding: 0px;
-  }
-}
-
-#bber .timeline ul li.item:hover {
-  border: var(--style-border-hover);
-}
-
-#bber ul.list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-#bber li.item {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-}
-
-@media screen and (max-width: 1300px) {
-  #bber .timeline ul li.item {
-      width: 49%;
-      margin-right: 1%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #bber .timeline ul li.item {
-      width: 100%;
-      margin-right: 0px;
-  }
-
-  #bber .timeline ul li.item {
-      padding: 16px 20px;
-  }
-}
-
 .timeline ul .list {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
 
-.bb-info {
-  display: inline;
-  float: right;
-  line-height: 1;
-  color: var(--heo-secondtext);
-  margin-left: auto;
-  margin-bottom: 1rem;
-  margin-right: 0.5rem;
-}
 
-.bb-info:hover {
-  color: var(--heo-hovertext);
-}
-
-#bber {
-  margin-top: 1rem;
-  width: 100%;
-}
-
-#bber div.bber-content {
-  display: flex;
-  flex-flow: wrap;
-  border-radius: 12px;
-  width: 100%;
-  height: 100%;
-}
-
-#bber > section > ul > li.item {
-  margin-bottom: 1rem;
-}
-
-#bber .bber-info {
-  display: flex;
-  align-items: center;
-}
-
-#bber .bber-info .fa-rectangles-mixed {
-  margin-right: 8px;
-}
-
-#bber .bber-content-link {
-  display: flex;
-  margin-left: 0.5rem;
-  font-size: 0.7rem;
-  align-items: center;
-  background-color: rgba(245, 108, 108, 0.13);
-  color: rgb(245, 108, 108);
-  padding: 0px 8px;
-  border-radius: 20px;
-}
-
-#bber .bber-content-link:hover {
-  background-color: var(--heo-main);
-  color: var(--heo-white);
-}
-
-#bber .bber-content-link i {
-  margin-right: 3px;
-}
-
-#bber .bber-reply {
-  cursor: pointer;
-  padding: 0px 4px;
-}
-
-#bber .bber-bottom {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-#bber .count {
-  color: var(--heo-secondtext);
-  font-size: 0.8rem;
-}
-
-#bber p {
-  margin: 0px;
-}
-
-#bber .datafrom i {
-  margin-right: 4px;
-}
-
-#bber .bber-music {
-  width: 100%;
-  height: 90px;
-  margin: 0.5rem 0px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: var(--style-border-always);
-  background: var(--heo-secondbg);
-}
-
-#bber .aplayer {
-  margin: 0px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-music .aplayer-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin: 0px;
-  color: var(--heo-black);
-}
-
-#bber .aplayer.aplayer-withlrc .aplayer-pic {
-  height: 82px;
-  width: 82px;
-  margin: 4px;
-  border-radius: 4px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-music {
-  height: 23px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
-  padding: 0px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
-  background: var(--heo-gray);
-  height: 8px;
-  border-radius: 12px;
-  transition: all 0.3s ease 0s;
-  overflow: hidden;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap:hover .aplayer-bar {
-  height: 12px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
-  height: 100%;
-  border-radius: 12px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
-  height: 100%;
-  border-radius: 12px;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
-  display: none;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller {
-  align-items: center;
-}
-
-#bber .aplayer .aplayer-info .aplayer-controller .aplayer-time {
-  position: initial;
-}
-
-#bber .bber-music .aplayer-lrc {
-  display: none;
-}
-
-#bber-tips {
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-#bber .bber-content-img img {
-  object-fit: cover;
-  max-height: 100%;
-  border-radius: 12px;
-}
-
-#bber .bber-content-img {
-  height: 100px;
-  margin: 0.2rem auto 0.3rem 0px;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  position: relative;
-}
-
-#bber > section > ul > li > div .bber-info-time {
-  color: var(--heo-fontcolor);
-  font-size: 0.7rem;
-  background-color: var(--heo-gray-op);
-  padding: 0px 8px;
-  border-radius: 20px;
-  cursor: default;
-}
-
-#bber .bber-content .datacont {
-  order: 0;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--heo-fontcolor);
-  width: 100%;
-  line-height: 1.38;
-  border-radius: 12px;
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-}
-
-#bber > section > ul > li > div .datafrom {
-  order: 2;
-  color: var(--heo-secondtext);
-  font-size: 0.7rem;
-  margin-left: 8px;
-}
-
-#bber > section > ul > li > div .datafrom small {
-  font-size: 0.7rem;
-}
 
 .load-btn.button-load {
   background: var(--heo-card-btn-bg);
@@ -13442,26 +13025,6 @@ figure.gallery-group:hover .gallery-group-name::after {
 
 .moments-list .article-sort-item-info .article-sort-item-title:hover {
   color: var(--heo-hovertext);
-}
-
-a.bb-link {
-  margin-left: 8px;
-  display: inline;
-  color: var(--heo-secondtext) !important;
-  border: none !important;
-}
-
-a.bb-link-info {
-  display: inline;
-  float: right;
-  line-height: 2.7rem;
-  border: none !important;
-  color: var(--heo-secondtext) !important;
-}
-
-a.bb-link-info:hover {
-  color: var(--heo-fontcolor) !important;
-  background: 0px 0px !important;
 }
 
 #friend_link_moments {
@@ -13989,23 +13552,7 @@ span.hexo-douban-pagenum {
 
 
 
-#about-page .about-statistic {
-  min-height: 380px;
-  width: 39%;
-  background: url("https://img.zhheo.com/i/2022/09/23/632d5d8f37e90.webp") center top / cover no-repeat;
-  color: var(--heo-white);
-  overflow: hidden;
-}
 
-#about-page .about-statistic::after {
-  box-shadow: rgb(15, 17, 20) 0px -159px 173px 71px inset;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-}
 
 #statistic {
   font-size: 16px;
