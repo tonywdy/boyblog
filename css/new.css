@@ -5432,35 +5432,7 @@ img {
 }
 
 
-#bbTimeList .li-style:hover {
-  color: var(--heo-theme);
-  transition: all 0.3s ease 0s;
-}
 
-#bbTimeList {
-  background: var(--heo-none);
-  color: var(--heo-fontcolor);
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  box-shadow: var(--heo-shadow-lightblack);
-  display: flex;
-  transition: all 0.3s ease 0s;
-  margin-bottom: 1rem;
-  border: var(--style-border);
-  align-items: center;
-  height: 50px;
-}
-
-#bbTimeList:hover {
-  border: var(--style-border-hover);
-  box-shadow: var(--heo-shadow-main);
-}
-
-@media screen and (min-width: 1300px) {
-  #bbTimeList {
-      margin-bottom: 1rem;
-  }
-}
 
 .bber-gotobb {
   line-height: 25px;
@@ -5506,12 +5478,6 @@ img {
       border-radius: 0px !important;
   }
 
-  #bbTimeList {
-      margin-top: 0px;
-      border-radius: 0px;
-      background: var(--heo-background);
-      padding: 0.5rem 20px;
-  }
 
   a.article-meta__categories {
       font-size: 12px;
@@ -5520,12 +5486,11 @@ img {
       border-radius: 4px !important;
       padding: 2px 9px !important;
   }
-
-  #bbTimeList {
-      margin-bottom: 0px;
-  }
 }
 
+#bbTimeList {
+  margin-top: 60px;
+}
 .bb-info {
   display: inline;
   float: right;
