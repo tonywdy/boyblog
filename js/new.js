@@ -110,3 +110,112 @@ function toggleWinbox() {
     else createWinbox();
 }
 
+"" === GLOBAL_CONFIG_SITE.title.replace("Jayhrn", "") ? document.getElementById("page-name-text").style.display = "none" : document.querySelector("#page-name-text>span").innerHTML = document.title.split(" | Jayhrn")[0];
+
+var $percent = document.querySelector("#nav #hotkey #top-button a.site-page i");
+$percent && window.addEventListener("scroll", (function () {
+    let e = document.body.scrollHeight || document.documentElement.scrollHeight,
+        t = window.innerHeight || document.documentElement.clientHeight;
+    $percent.dataset.percent = ((document.body.scrollTop || document.documentElement.scrollTop) / (e - t) * 100).toFixed(0)
+}));
+
+
+
+let cyan = {};
+cyan.showRightMenu = function (isTrue, x = 0, y = 0) {
+    let $rightMenu = $('#rightMenu');
+    $rightMenu.css('top', x + 'px').css('left', y + 'px');
+
+    if (isTrue) {
+        $rightMenu.show();
+    } else {
+        $rightMenu.hide();
+    }
+}
+// 右键菜单事件
+if (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+    window.oncontextmenu = function (event) {
+        $('.rightMenu-group.hide').hide();
+        if (document.getSelection().toString()) {
+            $('#menu-tools').show();
+        }
+        if (event.ctrlKey) return true;
+        if (localStorage.getItem("right_menu_switch") === 'off') return true
+        let pageX = event.clientX + 10;
+        let pageY = event.clientY;
+        let rmWidth = $('#rightMenu').width();
+        let rmHeight = $('#rightMenu').height();
+        if (pageX + rmWidth > window.innerWidth) {
+            pageX -= rmWidth + 10;
+        }
+        if (pageY + rmHeight > window.innerHeight) {
+            pageY -= pageY + rmHeight - window.innerHeight;
+        }
+
+
+
+        cyan.showRightMenu(true, pageY, pageX);
+        return false;
+    };
+
+    window.addEventListener('click', function () { cyan.showRightMenu(false); });
+}
+
+
+setInterval(() => {
+    // let create_time = Math.round(new Date('2021-10-15 00:00:00').getTime() / 1000); //在此行修改建站时间
+    // 有苹果用户发现safari浏览器不能正常运行，百度了一下发现是格式化的问题，改成下面这种应该就可以了。感谢反馈。
+    let create_time = Math.round(new Date('2021/10/15 00:00:00').getTime() / 1000); //在此行修改建站时间
+    let timestamp = Math.round((new Date().getTime()) / 1000);
+    let second = timestamp - create_time;
+    let time = new Array(0, 0, 0, 0, 0);
+
+    var nol = function(h) {
+        return h > 9 ? h : '0' + h;
+    }
+    if (second >= 365 * 24 * 3600) {
+        time[0] = parseInt(second / (365 * 24 * 3600));
+        second %= 365 * 24 * 3600;
+    }
+    if (second >= 24 * 3600) {
+        time[1] = parseInt(second / (24 * 3600));
+        second %= 24 * 3600;
+    }
+    if (second >= 3600) {
+        time[2] = nol(parseInt(second / 3600));
+        second %= 3600;
+    }
+    if (second >= 60) {
+        time[3] = nol(parseInt(second / 60));
+        second %= 60;
+    }
+    if (second >= 0) {
+        time[4] = nol(second);
+    }
+    let currentTimeHtml = ""
+    if (time[0] != 0) {
+        currentTimeHtml += time[0] + ' YEAR '
+    }
+    currentTimeHtml += time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
+    document.getElementById("runtime").innerHTML = currentTimeHtml;
+}, 1000);
+function catalogActive () {
+    let $list = document.getElementById('catalog-list')
+    if ($list) {
+      // 鼠标滚轮滚动
+      $list.addEventListener('mousewheel', function (e) {
+        // 计算鼠标滚轮滚动的距离
+        $list.scrollLeft -= e.wheelDelta / 2
+        // 阻止浏览器默认方法
+        e.preventDefault()
+      }, false)
+  
+      // 高亮当前页面对应的分类或标签
+      let $catalog = document.getElementById(decodeURIComponent(window.location.pathname))
+      $catalog.classList.add('selected')
+  
+      // 滚动当前页面对应的分类或标签到中部
+      $list.scrollLeft = ($catalog.offsetLeft - $list.offsetLeft) - ($list.offsetWidth - $catalog.offsetWidth) / 2
+    }
+  }
+  catalogActive()

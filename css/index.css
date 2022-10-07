@@ -4103,6 +4103,86 @@ h1.page-title + .tag-cloud-list {
   width: auto;
   vertical-align: text-bottom;
 }
+#rightMenu {
+  display: none;
+  position: fixed;
+  width: 160px;
+  height: fit-content;
+  top: 10%;
+  left: 10%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--style-border);
+  border-radius: 8px;
+  z-index: 100;
+  -webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,0.35);
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.35);
+}
+#rightMenu .rightMenu-group {
+  padding: 7px 6px;
+}
+#rightMenu .rightMenu-group:nth-child(1) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+#rightMenu .rightMenu-group:not(:nth-last-child(1)) {
+  border-bottom: 2px dashed var(--cyan-theme-color);
+}
+#rightMenu .rightMenu-group:not(:nth-child(1)) .rightMenu-item {
+  margin: 0.25rem 0;
+}
+#rightMenu .rightMenu-group .rightMenu-item {
+  height: 30px;
+  line-height: 30px;
+  border-radius: 8px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--font-color);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+#rightMenu .rightMenu-group .rightMenu-item:hover {
+  background-color: var(--text-bg-hover);
+  color: var(--cyan-white);
+}
+#rightMenu .rightMenu-group .rightMenu-item i {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  padding: 0 5px;
+}
+#rightMenu .rightMenu-group .rightMenu-item span.rightMenu-name {
+  line-height: 30px;
+  margin-left: 5px;
+  letter-spacing: 5px;
+}
+.rightMenu-group.hide {
+  display: none;
+}
 #page-header {
   position: relative;
   width: 100%;
