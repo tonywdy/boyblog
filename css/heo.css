@@ -287,11 +287,6 @@ template {
   white-space: nowrap;
 }
 
-#aside-content .aside-list > .aside-list-item .content > .comment, #aside-content .aside-list > .aside-list-item .content > .name, #aside-content .aside-list > .aside-list-item .content > .title, #error-wrap .error-content .error-info .error_subtitle, #post-info .post-title, #recent-posts > .recent-post-item > .recent-post-info > .article-title, #recent-posts > .recent-post-item > .recent-post-info > .content, .article-sort-item-title, .limit-more-line, .relatedPosts > .relatedPosts-list .content .title, figure.gallery-group .gallery-group-name, figure.gallery-group p {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-}
 
 #article-container h1::before, #article-container h2::before, #article-container h3::before, #article-container h4::before, #article-container h5::before, #article-container h6::before, #post .post-copyright::before, #post .post-outdate-notice::before, .fontawesomeIcon, .note:not(.no-icon)::before {
   display: inline-block;
@@ -1852,113 +1847,6 @@ blockquote footer cite::before {
   }
 }
 
-#error-wrap {
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  left: 0px;
-  margin: 0px auto;
-  padding: 0px 1rem;
-  max-width: 1000px;
-  transform: translate(0px, -50%);
-}
-
-#error-wrap .error-content {
-  display: flex;
-  -webkit-box-orient: horizontal;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  margin: 0px 1rem;
-  height: 18rem;
-  border-radius: 5px;
-  background: var(--card-bg);
-  box-shadow: var(--card-box-shadow);
-  transition: all 0.3s ease 0s;
-}
-
-#error-wrap .error-content:hover {
-  box-shadow: var(--card-hover-box-shadow);
-}
-
-@media screen and (max-width: 768px) {
-  #error-wrap .error-content {
-      -webkit-box-orient: vertical;
-      flex-direction: column;
-      margin: 0px;
-      height: 25rem;
-  }
-}
-
-#error-wrap .error-content .error-img {
-  -webkit-box-flex: 1;
-  flex: 1 1 0%;
-  height: 100%;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  background-color: rgb(48, 122, 246);
-  background-position: center center;
-  background-size: cover;
-}
-
-@media screen and (max-width: 768px) {
-  #error-wrap .error-content .error-img {
-      -webkit-box-flex: 1;
-      flex: 1 1 0%;
-      width: 100%;
-      border-top-right-radius: 8px;
-      border-bottom-left-radius: 0px;
-  }
-}
-
-#error-wrap .error-content .error-info {
-  -webkit-box-flex: 1;
-  flex: 1 1 0%;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 14px;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-}
-
-@media screen and (max-width: 768px) {
-  #error-wrap .error-content .error-info {
-      -webkit-box-flex: 1.1;
-      flex: 1.1 1 0%;
-      width: 100%;
-  }
-}
-
-#error-wrap .error-content .error-info .error_title {
-  margin-top: -4rem;
-  font-size: 9em;
-}
-
-@media screen and (max-width: 768px) {
-  #error-wrap .error-content .error-info .error_title {
-      margin-top: -3rem;
-  }
-}
-
-#error-wrap .error-content .error-info .error_subtitle {
-  margin-top: -3.5rem;
-  word-break: break-word;
-  font-size: 1.6em;
-  -webkit-line-clamp: 2;
-}
-
-#error-wrap .error-content .error-info a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.3rem 1.5rem;
-  background: var(--btn-bg);
-  color: var(--btn-color);
-}
-
-#error-wrap .error-content .error-info a i {
-  padding-right: 0.3rem;
-}
 
 @media screen and (min-width: 900px) {
   #aside-content {
@@ -7131,13 +7019,6 @@ li.card-archive-list-item {
 .button--animated {
   transition: all 0.3s ease 0s;
   border-radius: 8px !important;
-}
-
-#error-wrap .error-content .error-info a:hover {
-  background-color: var(--heo-blue);
-  transition: all 0.3s ease 0s;
-  transform: scale(1.03);
-  box-shadow: var(--heo-shadow-blue);
 }
 
 .button--animated::before {
