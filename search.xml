@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hexo增添头像卡片动态背景</title>
+      <link href="/posts/4f209218/"/>
+      <url>/posts/4f209218/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文将介绍如何在侧边栏增添头像卡片动态背景。效果展示：将鼠标移至头像卡片即可看到。<br><a href="https://www.helloimg.com/image/ZUhqeh"><img src="https://www.helloimg.com/images/2022/10/08/ZUhqeh.gif" alt="ZUhqeh.gif"></a></p><h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>1.在<code>\themes\butterfly\source\css</code>目录下创建一个<code>css</code>文件，将如下代码写入该文件（有两种效果，选其一）:</p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 效果一：彩带 */</span></span><br><span class="line"><span class="selector-class">.card-info</span>&gt;<span class="selector-class">.is-center</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 效果二：花 */</span></span><br><span class="line"><span class="selector-class">.card-info</span>&gt;<span class="selector-class">.is-center</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/20200530181856.gif</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>如果是<code>旧版本（4.X.X之前）</code></p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 效果一：彩带 */</span></span><br><span class="line"><span class="selector-class">.card-info-avatar</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 效果二：花 */</span></span><br><span class="line"><span class="selector-class">.card-info-avatar</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/20200530181856.gif</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>2.找到主题配置文件<code>_config.butterfly.yml</code>，在<code>inject</code>的<code>head</code>处引入该<code>css</code>文件：</p><figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel="stylesheet"</span> <span class="string">href="/css/xxx.css"&gt;</span></span><br></pre></td></tr></tbody></table></figure><p>3.重新部署，启动，就可以看到效果啦。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>html总结</title>
       <link href="/posts/f21fdfee/"/>
       <url>/posts/f21fdfee/</url>
@@ -1645,9 +1670,9 @@
             
             <tag> 资源 </tag>
             
-            <tag> MAC </tag>
-            
             <tag> 软件分享 </tag>
+            
+            <tag> MAC </tag>
             
         </tags>
       
@@ -1674,9 +1699,9 @@
             
             <tag> 资源 </tag>
             
-            <tag> MAC </tag>
-            
             <tag> 软件分享 </tag>
+            
+            <tag> MAC </tag>
             
         </tags>
       
