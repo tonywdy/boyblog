@@ -20,7 +20,7 @@ async function checkLocalSite(url){
     try{
         console.log("check:",url)
         let domain = url.split("/")[2];
-        if(domain.endsWith("boyblog.pages.dev")||domain.endsWith("localhost:4000"))return true;
+        if(domain.endsWith("localhost:4000")||domain.endsWith("boyblog.pages.dev"))return true;
         return false;
     }catch(err){
         return true;
