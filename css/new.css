@@ -8851,9 +8851,9 @@ $themes: 'deep-purple', 'gold', 'space-black', 'silver', 'random';
 }
 #notice {
   height: 47px;
-  background-color: rgba(0, 0, 0, 0.110);
+  background-color: rgb(255, 255, 255);
   color: var(--font-color);
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 10px 20px 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -8899,4 +8899,19 @@ $themes: 'deep-purple', 'gold', 'space-black', 'silver', 'random';
   line-height: 25px;
   margin-left: 8px;
   transition: 0.3s;
+}
+/*滚动条样式*/
+::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  background-color: #12b7f5;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 93, 143, 1) 25%, transparent 25%, transparent 50%, rgba(255, 93, 143, 1) 50%,
+  rgba(255, 93, 143, 1) 75%, transparent 75%, transparent);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #ffbfbf;
 }

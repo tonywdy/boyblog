@@ -6,7 +6,7 @@
   <link href="https://boyblog.pages.dev/atom.xml" rel="self"/>
   
   <link href="https://boyblog.pages.dev/"/>
-  <updated>2022-10-18T22:25:25.379Z</updated>
+  <updated>2022-10-22T02:42:56.934Z</updated>
   <id>https://boyblog.pages.dev/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神器复活！再也不用花钱充会员了！</title>
+    <link href="https://boyblog.pages.dev/posts/a32a54e2/"/>
+    <id>https://boyblog.pages.dev/posts/a32a54e2/</id>
+    <published>2022-10-22T02:37:00.000Z</published>
+    <updated>2022-10-22T02:42:56.934Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>平时不管是学习还是工作，经常需要写一些材料，这时候难免会需要到网上下载一些文档，但不少平台都需要会员才行。</p><p>之前“<strong>事儿哥</strong>”给大家介绍过一个免费下载文库文档的工具，但后来不是很好用了。最近我发现它又复活了！而且是带来了改版版本，使用起来更加简单，一看就会！让你下载文档，再也不用充会员了！</p><blockquote><p>适用平台：Win</p></blockquote><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p>1、下载后，双击exe文件运行工具。</p><p><img src="https://i0.hdslb.com/bfs/album/9627e94cf168f8cce9583f2eebd1ed1dbe3ba083.png" alt="图片"></p><p><strong>2、</strong>复制想下载的文档的网址，粘贴到软件中。</p><p><img src="https://i0.hdslb.com/bfs/album/8bbbcf730c362c652b2411fa75885db172fc8eaf.png" alt="图片"></p><p><strong>3、</strong>按下回车，软件开始获取文档资源。</p><p><img src="https://i0.hdslb.com/bfs/album/a93ead4209817bca904afeb3c3fe61ebbc1120bd.png" alt="图片"></p><p><strong>4、</strong>再次按下回车，软件进行文档页合并。</p><p><img src="https://i0.hdslb.com/bfs/album/a29281be08f116302b0f437f4ac0bcdafc0e06d2.png" alt="图片"></p><p><strong>5、</strong>打开下载好的文档，可以随意编辑。</p><p><img src="https://i0.hdslb.com/bfs/album/0a3f6d5a15a3ee532d8c97b66553d5e9378ed830.png" alt="图片"></p><p><strong>6、获取该工具</strong></p><blockquote><p>百度网盘：链接: <a href="https://pan.baidu.com/s/12zFAQB15bc0nVd3amAI_dQ">https://pan.baidu.com/s/12zFAQB15bc0nVd3amAI_dQ</a> 提取码: k5cr </p></blockquote><blockquote><p>夸克网盘：链接：<a href="https://pan.quark.cn/s/3853acd4766c">https://pan.quark.cn/s/3853acd4766c</a></p></blockquote><blockquote><p>蓝奏云：下载:<a href="https://wwt.lanzouw.com/iytYd0ebu4uf">https://wwt.lanzouw.com/iytYd0ebu4uf</a> 密码:8ybk</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;平时不管是学习还是工作，经常需要写一些材料，这时候难免会需要到网上下载一些文档，但不少平台都需要会员才行。&lt;/p&gt;
+&lt;p&gt;之前“&lt;stron</summary>
+      
+    
+    
+    
+    <category term="资源" scheme="https://boyblog.pages.dev/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="电脑神器" scheme="https://boyblog.pages.dev/tags/%E7%94%B5%E8%84%91%E7%A5%9E%E5%99%A8/"/>
+    
+    <category term="实用软件" scheme="https://boyblog.pages.dev/tags/%E5%AE%9E%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>苹果新品昨晚发布 / 苹果关闭iOS 16.0.2验证</title>
@@ -257,11 +284,11 @@
     <category term="瞎玩" scheme="https://boyblog.pages.dev/categories/%E7%9E%8E%E7%8E%A9/"/>
     
     
+    <category term="html" scheme="https://boyblog.pages.dev/tags/html/"/>
+    
     <category term="css" scheme="https://boyblog.pages.dev/tags/css/"/>
     
     <category term="灵动岛" scheme="https://boyblog.pages.dev/tags/%E7%81%B5%E5%8A%A8%E5%B2%9B/"/>
-    
-    <category term="html" scheme="https://boyblog.pages.dev/tags/html/"/>
     
     <category term="apple" scheme="https://boyblog.pages.dev/tags/apple/"/>
     
@@ -531,39 +558,6 @@
     <category term="QQ" scheme="https://boyblog.pages.dev/tags/QQ/"/>
     
     <category term="说说" scheme="https://boyblog.pages.dev/tags/%E8%AF%B4%E8%AF%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手机上就可以玩上百种经典小霸王的游戏-超级玛丽、拳皇、名将、坦克、魂斗罗等</title>
-    <link href="https://boyblog.pages.dev/posts/70f0e712/"/>
-    <id>https://boyblog.pages.dev/posts/70f0e712/</id>
-    <published>2022-10-07T10:20:41.000Z</published>
-    <updated>2022-10-07T10:23:12.476Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="01-软件介绍"><a href="#01-软件介绍" class="headerlink" title="01 软件介绍"></a>01 软件介绍</h1><blockquote><p> 仅支持安卓系统 </p></blockquote><p>小霸王模拟器安卓版是一款针对Android平台开发的模拟器平台软件。在这里，为你提供了上百种街机游戏，比如我们最熟悉的超级玛丽、拳皇、名将、坦克、魂斗罗等，所有游戏都是正版授权，你直接单击就可以开始游戏，无需下载。除此之外，你还可以调整角度，自定义设置键位，让你真正体验到街机游戏带来的快乐！</p><p><img src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20221007182213.png" alt="image"><br><img src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20221007182228.png" alt="image"><br><img src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20221007182255.png"><br><img src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20221007182306.png"></p><h1 id="02-软件特色-amp-亮点"><a href="#02-软件特色-amp-亮点" class="headerlink" title="02 软件特色&amp;亮点"></a>02 软件特色&amp;亮点</h1><p>1、独特功能：一只手集成多个模拟器平台，掌握经典游戏;</p><p>2、简单明了：提供免费的游戏光盘，无需立即安装和播放;</p><p>3、方便，贴心：高速下载，易于管理，大量资源，绿色安全;</p><p>4、流畅的控制：解决多点触控问题并享受最佳的触控体验。</p><p>5、海量免费游戏，只精选最经典好玩的，并不断新增中。</p><p>6、无需安装双击即可游戏，不再为找街机rom和设置模拟器烦恼。</p><p>7、在盒子中直接启动游戏，随时享受最便捷的游戏乐趣。</p><p>8、游戏管理方便，可创建独立桌面图标，快速开始游戏。</p><p>9、所有游戏经过权威杀软检测与认证，保障您玩得放心。</p><h1 id="03-下载"><a href="#03-下载" class="headerlink" title="03 下载"></a>03 下载</h1><blockquote><p>安卓下载地址: <a href="https://wwn.lanzoul.com/ifidZ0180c5c">https://wwn.lanzoul.com/ifidZ0180c5c</a> 密码:8nbz</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;01-软件介绍&quot;&gt;&lt;a href=&quot;#01-软件介绍&quot; class=&quot;headerlink&quot; title=&quot;01 软件介绍&quot;&gt;&lt;/a&gt;01 软件介绍&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt; 仅支持安卓系统 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小霸王模拟器</summary>
-      
-    
-    
-    
-    <category term="资源" scheme="https://boyblog.pages.dev/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="手机" scheme="https://boyblog.pages.dev/tags/%E6%89%8B%E6%9C%BA/"/>
-    
-    <category term="安卓" scheme="https://boyblog.pages.dev/tags/%E5%AE%89%E5%8D%93/"/>
-    
-    <category term="小霸王" scheme="https://boyblog.pages.dev/tags/%E5%B0%8F%E9%9C%B8%E7%8E%8B/"/>
-    
-    <category term="游戏" scheme="https://boyblog.pages.dev/tags/%E6%B8%B8%E6%88%8F/"/>
     
   </entry>
   
