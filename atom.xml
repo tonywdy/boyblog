@@ -6,7 +6,7 @@
   <link href="https://boyblog.pages.dev/atom.xml" rel="self"/>
   
   <link href="https://boyblog.pages.dev/"/>
-  <updated>2022-10-22T05:58:26.588Z</updated>
+  <updated>2022-10-22T06:56:13.135Z</updated>
   <id>https://boyblog.pages.dev/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML右侧底部工具</title>
+    <link href="https://boyblog.pages.dev/posts/51a38e76/"/>
+    <id>https://boyblog.pages.dev/posts/51a38e76/</id>
+    <published>2022-10-22T06:10:00.000Z</published>
+    <updated>2022-10-22T06:56:13.135Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="图片演示"><a href="#图片演示" class="headerlink" title="图片演示"></a>图片演示</h1><p><img src="https://i0.hdslb.com/bfs/album/f999a5591e58679c94a5a9a2867fdd146bd5b5db.gif"></p><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>前往<a href="https://262975.yichafen.com/">https://262975.yichafen.com/</a>获取下载链接及密码</p><blockquote><p>资源编号:1</p></blockquote><p>查询方法:<br><img src="https://i0.hdslb.com/bfs/album/a4c850bbd0d1e3c70f00efcd48bd19dcbc7d5e08.gif"></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;图片演示&quot;&gt;&lt;a href=&quot;#图片演示&quot; class=&quot;headerlink&quot; title=&quot;图片演示&quot;&gt;&lt;/a&gt;图片演示&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://i0.hdslb.com/bfs/album/f999a5591e58679c94a5a</summary>
+      
+    
+    
+    
+    <category term="资源" scheme="https://boyblog.pages.dev/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="HTML" scheme="https://boyblog.pages.dev/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>如何在 JavaScript 中创建虚拟键盘？</title>
@@ -522,33 +546,6 @@
     
     
     <category term="html" scheme="https://boyblog.pages.dev/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 颜色设置以及进度条的实现详细介绍</title>
-    <link href="https://boyblog.pages.dev/posts/1f13b744/"/>
-    <id>https://boyblog.pages.dev/posts/1f13b744/</id>
-    <published>2022-10-07T10:43:38.000Z</published>
-    <updated>2022-10-07T10:47:26.480Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><p>如下：</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\033[字体颜色;字背景颜色m字符串\033[0m</span><br><span class="line">或者</span><br><span class="line">\e[字体颜色;字背景颜色m字符串\e[0m</span><br></pre></td></tr></tbody></table></figure><h1 id="后面进度条中例子"><a href="#后面进度条中例子" class="headerlink" title="后面进度条中例子"></a>后面进度条中例子</h1><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">printf "\e[31m[%-100s]\e[1;0m\e[32m[%c]\e[1;0m\e[35m[%d%%]\e[1;0m\r" $str ${label[index]} $i</span><br><span class="line"></span><br><span class="line">\e[31m   //红色字体，这里没有设置背景色,若要设 \e[31;40m 黑底红字 m放在最后作为结束 多个颜色之间用分号 ; 隔开</span><br><span class="line">[%-100s] //100个字符串左对齐 对应后面变量 $str</span><br><span class="line">\e[1;0m // 1表示颜色高亮 (后面有) ，0表示关闭前面设置的颜色属性，不然后面一直保持此设置</span><br><span class="line">[%d%%]  //后面两个百分号是为了打印出一个百分号</span><br><span class="line">\r   //光标回到左边，确保进度条从左开始并回到左边</span><br></pre></td></tr></tbody></table></figure><p>其他不再解释</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">颜色字体颜色背景颜色</span><br><span class="line">黑色3040</span><br><span class="line">红色3141</span><br><span class="line">绿色 3242</span><br><span class="line">黄色3343</span><br><span class="line">蓝色3444</span><br><span class="line">紫红色3545</span><br><span class="line">青蓝色3646</span><br><span class="line">白色3747</span><br><span class="line"></span><br><span class="line">输出特效格式控制：</span><br><span class="line"></span><br><span class="line">\033[30m   --   \033[37m   设置前景色即字体颜色</span><br><span class="line">\033[40m   --   \033[47m   设置背景色</span><br><span class="line"></span><br><span class="line">\033[0m  关闭所有属性 </span><br><span class="line">\033[1m   设置高亮度 </span><br><span class="line">\033[4m   下划线 </span><br><span class="line">\033[5m   闪烁 </span><br><span class="line">\033[7m   反显 </span><br><span class="line">\033[8m   消隐 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">光标位置等的格式控制：</span><br><span class="line"></span><br><span class="line">\033[nA  光标上移n行 </span><br><span class="line">\03[nB   光标下移n行 </span><br><span class="line">\033[nC   光标右移n行 </span><br><span class="line">\033[nD   光标左移n行 </span><br><span class="line">\033[y;xH设置光标位置 </span><br><span class="line">\033[2J   清屏 </span><br><span class="line">\033[K   清除从光标到行尾的内容 </span><br><span class="line">\033[s   保存光标位置 </span><br><span class="line">\033[u   恢复光标位置 </span><br><span class="line">\033[?25l   隐藏光标 </span><br><span class="line">\33[?25h   显示光标</span><br></pre></td></tr></tbody></table></figure><h1 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /usr/bin/env bash</span></span><br><span class="line">  </span><br><span class="line">i=0</span><br><span class="line">str=<span class="string">""</span></span><br><span class="line">label=(<span class="string">'|'</span> <span class="string">'/'</span> <span class="string">'-'</span> <span class="string">'\\'</span>)</span><br><span class="line">index=0</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -le 100 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> index=i%4</span><br><span class="line">        <span class="built_in">printf</span> <span class="string">"\e[31m[%-100s]\e[1;0m\e[32m[%c]\e[1;0m\e[35m[%d%%]\e[1;0m\r"</span> <span class="variable">$str</span> <span class="variable">${label[index]}</span> <span class="variable">$i</span></span><br><span class="line">        <span class="built_in">let</span> i++</span><br><span class="line">        str+=<span class="string">"#"</span></span><br><span class="line">        <span class="built_in">sleep</span> 0.2</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></tbody></table></figure><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://gitlab.com/KINGWDY/photobed/-/raw/main/20221007184643.png"></p><blockquote><p>如果还明白的话，还请支持一下！</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;格式&quot;&gt;&lt;a href=&quot;#格式&quot; class=&quot;headerlink&quot; title=&quot;格式&quot;&gt;&lt;/a&gt;格式&lt;/h1&gt;&lt;p&gt;如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight text&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gu</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="https://boyblog.pages.dev/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Linux" scheme="https://boyblog.pages.dev/tags/Linux/"/>
-    
-    <category term="进度条" scheme="https://boyblog.pages.dev/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1/"/>
     
   </entry>
   
