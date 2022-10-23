@@ -6,7 +6,7 @@
   <link href="https://boyblog.pages.dev/atom.xml" rel="self"/>
   
   <link href="https://boyblog.pages.dev/"/>
-  <updated>2022-10-23T00:49:24.112Z</updated>
+  <updated>2022-10-23T11:32:42.023Z</updated>
   <id>https://boyblog.pages.dev/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐藏来必力评论系统广告</title>
+    <link href="https://boyblog.pages.dev/posts/97fc2935/"/>
+    <id>https://boyblog.pages.dev/posts/97fc2935/</id>
+    <published>2022-10-23T11:28:00.000Z</published>
+    <updated>2022-10-23T11:32:42.023Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="https://raw.githubusercontents.com/tonywdy/Blog-bed/main//img/20221023192840.png" alt="无广告"><br><img src="https://raw.githubusercontents.com/tonywdy/Blog-bed/main//img/20221023192909.png" alt="有广告"></p><h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>在<code>自定义CSS文件</code>中追加<code>style</code>标签，隐藏广告<code>id</code>，如下代码：</p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#taboola-livere</span> { </span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;效果图&quot;&gt;&lt;a href=&quot;#效果图&quot; class=&quot;headerlink&quot; title=&quot;效果图&quot;&gt;&lt;/a&gt;效果图&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontents.com/tonywdy/Blog-bed/main</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="https://boyblog.pages.dev/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="CSS" scheme="https://boyblog.pages.dev/tags/CSS/"/>
+    
+    <category term="来必力" scheme="https://boyblog.pages.dev/tags/%E6%9D%A5%E5%BF%85%E5%8A%9B/"/>
+    
+    <category term="广告" scheme="https://boyblog.pages.dev/tags/%E5%B9%BF%E5%91%8A/"/>
+    
+    <category term="屏蔽广告" scheme="https://boyblog.pages.dev/tags/%E5%B1%8F%E8%94%BD%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>微信朋友圈封面背景来了，快换上吧！</title>
@@ -362,11 +392,11 @@
     <category term="瞎玩" scheme="https://boyblog.pages.dev/categories/%E7%9E%8E%E7%8E%A9/"/>
     
     
+    <category term="html" scheme="https://boyblog.pages.dev/tags/html/"/>
+    
     <category term="css" scheme="https://boyblog.pages.dev/tags/css/"/>
     
     <category term="灵动岛" scheme="https://boyblog.pages.dev/tags/%E7%81%B5%E5%8A%A8%E5%B2%9B/"/>
-    
-    <category term="html" scheme="https://boyblog.pages.dev/tags/html/"/>
     
     <category term="apple" scheme="https://boyblog.pages.dev/tags/apple/"/>
     
@@ -524,30 +554,6 @@
     
     
     <category term="Bilibili" scheme="https://boyblog.pages.dev/tags/Bilibili/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo增添头像卡片动态背景</title>
-    <link href="https://boyblog.pages.dev/posts/4f209218/"/>
-    <id>https://boyblog.pages.dev/posts/4f209218/</id>
-    <published>2022-10-08T10:59:01.000Z</published>
-    <updated>2022-10-10T11:29:08.393Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文将介绍如何在侧边栏增添头像卡片动态背景。效果展示：将鼠标移至头像卡片即可看到。<br><img src="https://i0.hdslb.com/bfs/album/52a87c423587ddf657caaa5714092e5b7b73835d.gif" alt="ZUhqeh.gif">]</p><h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>1.在<code>\themes\butterfly\source\css</code>目录下创建一个<code>css</code>文件，将如下代码写入该文件（有两种效果，选其一）:</p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 效果一：彩带 */</span></span><br><span class="line"><span class="selector-class">.card-info</span>&gt;<span class="selector-class">.is-center</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 效果二：花 */</span></span><br><span class="line"><span class="selector-class">.card-info</span>&gt;<span class="selector-class">.is-center</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/20200530181856.gif</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>如果是<code>旧版本（4.X.X之前）</code></p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 效果一：彩带 */</span></span><br><span class="line"><span class="selector-class">.card-info-avatar</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 效果二：花 */</span></span><br><span class="line"><span class="selector-class">.card-info-avatar</span><span class="selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">https://gcore.jsdelivr.net/gh/rigodlee/BLOGCDN/img/20200530181856.gif</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>2.找到主题配置文件<code>_config.butterfly.yml</code>，在<code>inject</code>的<code>head</code>处引入该<code>css</code>文件：</p><figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel="stylesheet"</span> <span class="string">href="/css/xxx.css"&gt;</span></span><br></pre></td></tr></tbody></table></figure><p>3.重新部署，启动，就可以看到效果啦。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本文将介绍如何在侧边栏增添头像卡片动态背景。效果展示：将鼠标移至头像卡片即可看到。&lt;br&gt;&lt;img src=&quot;https://i0.hdsl</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="https://boyblog.pages.dev/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Hexo" scheme="https://boyblog.pages.dev/tags/Hexo/"/>
     
   </entry>
   

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>隐藏来必力评论系统广告</title>
+      <link href="/posts/97fc2935/"/>
+      <url>/posts/97fc2935/</url>
+      
+        <content type="html"><![CDATA[<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="https://raw.githubusercontents.com/tonywdy/Blog-bed/main//img/20221023192840.png" alt="无广告"><br><img src="https://raw.githubusercontents.com/tonywdy/Blog-bed/main//img/20221023192909.png" alt="有广告"></p><h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>在<code>自定义CSS文件</code>中追加<code>style</code>标签，隐藏广告<code>id</code>，如下代码：</p><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#taboola-livere</span> { </span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+            <tag> 来必力 </tag>
+            
+            <tag> 广告 </tag>
+            
+            <tag> 屏蔽广告 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信朋友圈封面背景来了，快换上吧！</title>
       <link href="/posts/312fd378/"/>
       <url>/posts/312fd378/</url>
@@ -350,11 +381,11 @@
       
         <tags>
             
+            <tag> html </tag>
+            
             <tag> css </tag>
             
             <tag> 灵动岛 </tag>
-            
-            <tag> html </tag>
             
             <tag> apple </tag>
             
@@ -1529,9 +1560,9 @@
             
             <tag> 资源 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 软件分享 </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> 抠图 </tag>
             
@@ -2100,9 +2131,9 @@
             
             <tag> 小知识 </tag>
             
-            <tag> APlayer </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> APlayer </tag>
             
         </tags>
       
@@ -2156,9 +2187,9 @@
             
             <tag> 小知识 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> MAC </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> DNS </tag>
             
@@ -2187,9 +2218,9 @@
             
             <tag> 资源 </tag>
             
-            <tag> 软件分享 </tag>
-            
             <tag> MAC </tag>
+            
+            <tag> 软件分享 </tag>
             
         </tags>
       
@@ -2216,9 +2247,9 @@
             
             <tag> 资源 </tag>
             
-            <tag> 软件分享 </tag>
-            
             <tag> MAC </tag>
+            
+            <tag> 软件分享 </tag>
             
         </tags>
       

@@ -8915,3 +8915,6 @@ $themes: 'deep-purple', 'gold', 'space-black', 'silver', 'random';
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
     background: #ffbfbf;
 }
+#taboola-livere { 
+  display: none;
+}
